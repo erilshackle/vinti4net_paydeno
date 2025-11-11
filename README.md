@@ -1,8 +1,6 @@
 # Vinti4Net Pay Deno - Payment SDK
 
-[![deno.land/x](https://img.shields.io/badge/deno.land-x.vinti4net_paydeno-blue?logo=deno&style=flat-square)](https://deno.land/x/vinti4net_paydeno)  
-[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)  
-[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat-square)](https://deno.land/x/vinti4net_paydeno)  
+[![deno.land/x](https://img.shields.io/badge/deno.land-x.vinti4net_paydeno-blue?logo=deno&style=flat-square)](https://deno.land/x/vinti4net_paydeno) [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)  [![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat-square)](https://deno.land/x/vinti4net_paydeno)  
 
 SDK Deno para integração com o sistema de pagamentos **Vinti4Net** (SISP Cabo Verde).  
 Permite criar pagamentos de compra, serviços, recargas e reembolsos de forma simples, com suporte a processamento de respostas do gateway.
