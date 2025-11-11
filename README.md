@@ -1,7 +1,11 @@
-# Vinti4Net Deno SDK
+# Vinti4Net Pay Deno - Payment SDK
+
+[![deno.land/x](https://img.shields.io/badge/deno.land-x.vinti4net_paydeno-blue?logo=deno&style=flat-square)](https://deno.land/x/vinti4net_paydeno)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)  
+[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat-square)](https://deno.land/x/vinti4net_paydeno)  
 
 SDK Deno para integração com o sistema de pagamentos **Vinti4Net** (SISP Cabo Verde).  
-Permite criar pagamentos de compra, serviços, recargas e reembolsos de forma simples.
+Permite criar pagamentos de compra, serviços, recargas e reembolsos de forma simples, com suporte a processamento de respostas do gateway.
 
 ---
 
@@ -10,30 +14,74 @@ Permite criar pagamentos de compra, serviços, recargas e reembolsos de forma si
 Importe direto pelo Deno:
 
 ```ts
-import { Vinti4Net, PaymentRequest, PaymentResult } from "https://deno.land/x/vinti4net_deno/mod.ts";
+import { Vinti4Net, PaymentRequest, PaymentResult } from "https://deno.land/x/vinti4net_paydeno/mod.ts";
 ```
 
 ---
 
-## Uso
+## Exemplo de Uso
 
 ```ts
-import { Vinti4Net } from "https://deno.land/x/vinti4net_deno/mod.ts";
+import { Vinti4Net, BillingInfo } from "https://deno.land/x/vinti4net_paydeno/mod.ts";
 
 const client = new Vinti4Net("POS123", "AUTH456");
 
 // Preparar pagamento de compra
-client.preparePurchasePayment(1000, {
-  email: "cliente@exemplo.com",
-  billAddrCountry: "132",
-  billAddrCity: "Praia",
-  billAddrLine1: "Rua Exemplo, 123"
-});
+const request: PaymentRequest = {
+  amount: 1000,
+  billing: {
+    email: "cliente@exemplo.com",
+    billAddrCountry: "132",
+    billAddrCity: "Praia",
+    billAddrLine1: "Rua Exemplo, 123",
+  }
+};
+client.preparePurchasePayment(request.amount, request.billing);
+
 
 // Gerar formulário HTML para redirecionamento
 const html = await client.createPaymentForm("https://meusite.cv/response");
 
 console.log(html);
+```
+
+---
+
+## Processando Resposta do Gateway
+
+Ao receber a resposta POST do gateway, use `processResponse` para interpretar o resultado:
+
+```ts
+import { Vinti4Net } from "https://deno.land/x/vinti4net_paydeno/mod.ts";
+
+const client = new Vinti4Net("POS123", "AUTH456");
+
+// postData é o corpo recebido do gateway via POST
+const result = client.processResponse(postData);
+
+if(result.success){
+  console.log("Pagamento aprovado:", result.status, result.message);
+} else {
+  console.log("Pagamento falhou:", result.status, result.message);
+}
+```
+
+O retorno é um objeto `PaymentResult`:
+
+```ts
+interface PaymentResult {
+  status: "SUCCESS" | "CANCELLED" | "DECLINED" | "ERROR" | "UNKNOWN";
+  message: string;
+  success: boolean;
+  data: Record<string, unknown>;
+  dcc?: {
+    currency: string;
+    rate?: string;
+    markup?: string;
+    transactionCurrency?: string;
+  } | null;
+  debug?: Record<string, unknown>;
+}
 ```
 
 ---
@@ -51,9 +99,9 @@ console.log(html);
 
 ## Tipos
 
-* `PaymentRequest` - dados para preparar um pagamento
-* `PaymentResult` - retorno do gateway
-* `BillingInfo` - informações do cliente
+* `PaymentRequest` - dados usados para preparar um pagamento
+* `PaymentResult` - retorno do gateway após a transação
+* `BillingInfo` - informações do cliente para faturamento
 * `PaymentStatus` - `"SUCCESS" | "CANCELLED" | "DECLINED" | "ERROR" | "UNKNOWN"`
 
 ---
