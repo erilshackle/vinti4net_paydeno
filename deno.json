@@ -1,5 +1,5 @@
 {
-  "name": "vinti4net-deno",
+  "name": "vinti4net_paydeno",
   "author": "Eril TS Carvalho",
   "version": "1.0.0",
   "description": "SDK Deno para integração com o sistema de pagamentos Vinti4Net (SISP Cabo Verde)",
