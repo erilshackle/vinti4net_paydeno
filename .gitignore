@@ -1,0 +1,22 @@
+# Node / Deno
+node_modules/
+npm-debug.log
+.DS_Store
+
+# Deno cache / lock
+.deno/
+deno.lock
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.sublime-workspace
+*.sublime-project
+
+# Test output / coverage
+coverage/
+*.log
+
+# Build / dist
+dist/
