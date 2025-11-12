@@ -1,4 +1,4 @@
-import type { PaymentResult } from "./../types.ts";
+import type { PaymentResult } from "./types.ts";
 
 const SUCCESS_MESSAGE_TYPES = ["8", "10", "P", "M"];
 

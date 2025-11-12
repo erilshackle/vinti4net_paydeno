@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2025-11-12
+
+### Fixed
+- fix: wrong filename, code update
+
+### Changed
+- Merge branch 'main' of https://github.com/erilshackle/vinti4net-deno
+- Update README.md
+- Create jekyll-gh-pages.yml
+- update: readme
+
 ## [Unreleased] - 2025-11-11
 
 ### Added

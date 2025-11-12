@@ -1,8 +1,8 @@
 // --- imports ---
-import { processResponse } from "./helpers/response.ts";
+import type { PaymentResult, BillingInfo, PaymentRequest } from "./types.ts";
 import { currencyToCode, normalizeBilling } from "./helpers/utils.ts";
 import { sha512Base64 } from "./helpers/crypto.ts";
-import type { PaymentResult, BillingInfo, PaymentRequest } from "./types.ts";
+import { processResponse } from "./response.ts";
 
 
 export class Vinti4Net {
