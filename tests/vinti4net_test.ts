@@ -6,11 +6,11 @@ const client = new Vinti4Net("TESTPOSID", "TESTAUTHCODE");
 
 // Billing de exemplo
 const billing = {
-  user: { email: "user@test.com", country: "132", city: "Praia", address: "Rua Teste" },
   billAddrCountry: "132",
   billAddrCity: "Praia",
   billAddrLine1: "Rua Teste",
-  email: "user@test.com"
+  email: "user@test.com",
+  billAddrPostCode: "7600"
 };
 
 // Teste: preparar pagamento de compra

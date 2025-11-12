@@ -15,17 +15,11 @@ export interface PaymentResult {
 }
 
 export interface BillingInfo {
-  user?: {
-    email?: string;
-    country?: string;
-    city?: string;
-    phone?: string;
-    address?: string;
-  };
   email?: string;
   billAddrCountry?: string;
   billAddrCity?: string;
   billAddrLine1?: string;
+  billAddrPostCode?: string;
 }
 
 export interface PaymentRequest {
