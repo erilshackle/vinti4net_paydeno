@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "SDK Deno para integração com o sistema de pagamentos Vinti4Net (SISP Cabo Verde)",
   "exports": "./mod.ts",
-  "repository": "https://github.com/erilshk/vinti4net-deno",
+  "repository": "https://github.com/erilshk/vinti4net-paydeno",
   "license": "MIT",
   "tasks": {
     "test": "deno test -A",

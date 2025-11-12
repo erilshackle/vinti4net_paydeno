@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.0.0] - 2025-11-12
+
+### Changed
+- refactoring structueres
+
 ## [1.0.1] - 2025-11-12
 
 ### Fixed
